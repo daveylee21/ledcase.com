@@ -63,8 +63,15 @@ def main():
     if not password:
         raise RuntimeError("The deployment password is missing.")
     head = os.environ["GITHUB_SHA"]
+    repo = os.environ["GITHUB_REPOSITORY"]
+    latest = command("gh", "api", f"repos/{repo}/git/ref/heads/main", "--jq", ".object.sha")
+    if latest.decode().strip() != head:
+        raise RuntimeError("A newer main revision is available. Deploy that revision.")
     base = deployment_base(head)
-    with ftplib.FTP_TLS(context=ssl.create_default_context(), timeout=30) as ftp:
+    context = ssl.create_default_context()
+    context.verify_flags &= ~ssl.VERIFY_X509_PARTIAL_CHAIN
+    context.load_verify_locations(Path(__file__).with_name("certum-ov-tls-g2-r39.pem"))
+    with ftplib.FTP_TLS(context=context, timeout=30) as ftp:
         ftp.connect("211.72.204.227", 21)
         # The provider's FTPS certificate identifies url.com.tw.
         ftp.host = "url.com.tw"
