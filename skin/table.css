@@ -1,0 +1,42 @@
+/* CSS Document */
+.table_A1{
+	border-left:1px solid #333333;
+	border-top:1px solid #333333;
+	background:#FFFFFF;
+	margin-top:10px;
+	text-align: left;
+	color:#333;
+}
+.table_A1 th{
+border-right:1px solid #333333;
+border-bottom:1px solid #333333;
+padding:3px;
+}
+.table_A1 td{
+border-right:1px solid #333333;
+border-bottom:1px solid #333333;
+padding:3px;
+font-size:12px;
+}
+.tdtitle{
+border-right:1px solid #333333;
+border-bottom:1px solid #333333;
+padding:3px;
+letter-spacing:0.25em;
+font-weight:bold;
+}
+
+.table_A2{
+background:#FFFFFF;
+border:1px solid #D6D6D6;
+border-top:1px solid #D6D6D6;
+font-size:12px;
+text-align:left;
+vertical-align:top;
+}
+.table_A2 td{background:#FFFFFF;padding:1px;}
+
+
+.Content-desc{
+line-height: normal;
+} 

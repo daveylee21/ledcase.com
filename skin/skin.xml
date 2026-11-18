@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SkinSet>
+<SkinSource>f2blog</SkinSource>
+ <SkinName>788金融商務-企業藍色版面</SkinName>
+ <SkinDesigner>智邦生活館</SkinDesigner>
+ <pubDate>2013-09-12</pubDate>
+ <DesignerURL>http://hosting.url.com.tw/</DesignerURL>
+ <DesignerMail>bizmail@corp.url.com.tw</DesignerMail>
+ <Flash>
+  <UseFlash>0</UseFlash>
+  <FlashPath/>
+  <FlashWidth/>
+  <FlashHeight/>
+  <FlashAlign/>
+  <FlashTop/>
+  <FlashTransparent/>
+ </Flash>
+ <replacement>
+  <image id="banner" file="header.jpg" width="960" height="300"/>
+  <image id="logo"  file="logo.png"  width="200" height="60" />
+  <image id="menu" file="menu.png" width="100" height="30" />
+  <image id="side" file="side.png" width="220" height="30" />
+ </replacement>
+</SkinSet>
