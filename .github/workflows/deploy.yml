@@ -1,0 +1,30 @@
+name: Deploy to URL.com.tw
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: ledcase-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify or deploy website files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FTPS_PASSWORD: ${{ secrets.LEDCASE_FTP_PASSORD }}
+          DEPLOY_ENABLED: ${{ vars.LEDCASE_DEPLOY_ENABLED }}
+        run: python3 .github/scripts/deploy.py
